@@ -4,18 +4,22 @@ public class textReader {
 
 
 		public static void main(String[] args) throws IOException {
+		
+		
+			File f1 = new File("H:\\tnm098\\tnm098\\lab3\\Lab3.2\\lab3\\text\\01.txt");
 			
-			 // pass the path to the file as a parameter
-		    FileReader fr =
-		    new FileReader("H:\\tnm098\\tnm098\\lab3\\Lab3.2\\lab3\\text\\01.txt"); 
-		  
-		    int i;
-		    while ((i=fr.read()) != -1)
-		      System.out.print((char) i);
+			BufferedReader in = (new BufferedReader(new FileReader(f1)));
+			String line;
+			String processedLine="";
+			while ((line = in.readLine()) != null) {
+			    processedLine = line.replaceAll("[^a-zA-Z0-9]"," ").toLowerCase().replaceAll("( )+", " ");
+			    System.out.print(processedLine);
+		
+			}
+	
+			
+			
+			
 		}
 		
-
-
-	
-	
 }
